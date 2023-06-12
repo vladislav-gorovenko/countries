@@ -1,9 +1,9 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Nunito_Sans } from "next/font/google";
 import Providers from "./providers";
 import Header from "./components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Nunito_Sans({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Countries App.",

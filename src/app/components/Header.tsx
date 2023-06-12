@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
+import { BsSun, BsMoon } from "react-icons/bs";
 
 export default function Header() {
   const [mounted, setMounted] = useState(false);
@@ -8,20 +9,28 @@ export default function Header() {
 
   useEffect(() => {
     setMounted(true);
-    setTheme("system");
   }, []);
 
   if (!mounted) {
     return null;
   }
 
+  function toggleTheme() {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+  }
+
+  function chooseIcon() {
+    return theme === "light" ? <BsMoon /> : <BsSun />;
+  }
+
   return (
-    <div>
-      The current theme is: {theme}
-      <br />
-      <button onClick={() => setTheme("light")}>Light Mode</button>
-      <br />
-      <button onClick={() => setTheme("dark")}>Dark Mode</button>
-    </div>
+    <header>
+      <div className="flex justify-between bg-header px-4 py-8   shadow-md dark:bg-header-dark">
+        <h1 className="text-lg font-extrabold">Where in the world?</h1>
+        <button className="flex items-center gap-2" onClick={toggleTheme}>
+          {chooseIcon()} Mode
+        </button>
+      </div>
+    </header>
   );
 }
