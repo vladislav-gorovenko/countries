@@ -1,5 +1,5 @@
 import { BsSearch, BsChevronDown, BsChevronUp } from "react-icons/bs";
-import Dropdown from "./Dropdown";
+import Dropdown from "./Filter";
 
 export default function Search() {
   return (

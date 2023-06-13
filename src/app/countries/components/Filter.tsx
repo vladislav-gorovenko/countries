@@ -13,7 +13,7 @@ const choice = [
   { name: "Oceania" },
 ];
 
-export default function Dropdown() {
+export default function Filter() {
   const [selected, setSelected] = useState(choice[0]);
 
   return (
@@ -42,7 +42,7 @@ export default function Dropdown() {
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 pl-10 pr-4 ${
                       active
-                        ? "bg-amber-100 text-amber-900"
+                        ? " bg-slate-100 dark:bg-slate-500"
                         : "text-text dark:text-text-dark"
                     }`
                   }
