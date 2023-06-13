@@ -1,11 +1,14 @@
-import { TbMoodSad2 } from "react-icons/tb";
 import Search from "./components/Search";
+import getAllCountries from "@/utils/getAllCountries";
+import CountriesGrid from "./components/CountriesGrid";
 
-export default function Countries() {
+export default async function Countries() {
+  const countries = await getAllCountries();
+
   return (
     <>
       <Search />
-      Here shall be some countries
+      <CountriesGrid countries={countries} />
     </>
   );
 }
