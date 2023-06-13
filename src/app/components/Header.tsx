@@ -25,8 +25,8 @@ export default function Header() {
   }
 
   return (
-    <header className="flex flex-col">
-      <div className="= flex justify-between bg-header px-4   py-8 shadow-md dark:bg-header-dark">
+    <header className=" bg-header shadow-md dark:bg-header-dark">
+      <div className="mx-auto flex max-w-6xl justify-between px-4   py-8  ">
         <h1 className="text-lg font-extrabold">
           <Link href="/">Where in the world?</Link>
         </h1>
