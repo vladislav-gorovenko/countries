@@ -1,33 +1,30 @@
-import Image from "next/image";
+"use client";
+import Country from "./Country";
+import { useContext } from "react";
+import { SearchContext } from "./searchContext";
+import Link from "next/link";
 
 export default function CountriesGrid({ countries }: { countries: Country[] }) {
-  const content = countries.map((country) => {
+  const { searchParameters } = useContext(SearchContext);
+
+  const filteredCountries = countries.filter((country) => {
+    const { region, name } = searchParameters;
     return (
-      <div>
-        <Image
-          height={160}
-          width={264}
-          src={country.flags.png}
-          alt={country.flags.alt}
-          className="obje"
-        />
-        <h1>{country.name.common}</h1>
-        <p>
-          <span className="font-bold">Population: </span>
-          {country.population}
-        </p>
-        <p>
-          <span className="font-bold">Region: </span>
-          {country.region}
-        </p>
-        <p>
-          <span className="font-bold">Capital: </span>
-          {country.capital}
-        </p>
-      </div>
+      country.name.common.toLowerCase().trim().includes(name) &&
+      country.region.toLowerCase().trim().includes(region)
     );
   });
+  const content = filteredCountries.map((country) => {
+    return (
+      <Link href={`/countries/${country.ccn3}`}>
+        <Country key={country.ccn3} country={country} />
+      </Link>
+    );
+  });
+
   return (
-    <div className="mt-8 grid grid-cols-1  gap-4 bg-red-50">{content}</div>
+    <div className=" mt-8 grid grid-cols-1 justify-center gap-16  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      {content}
+    </div>
   );
 }
