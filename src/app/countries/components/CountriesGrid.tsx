@@ -16,8 +16,8 @@ export default function CountriesGrid({ countries }: { countries: Country[] }) {
   });
   const content = filteredCountries.map((country) => {
     return (
-      <Link href={`/countries/${country.ccn3}`}>
-        <Country key={country.ccn3} country={country} />
+      <Link key={country.cca3} href={`/countries/${country.cca3}`}>
+        <Country key={country.cca3} country={country} />
       </Link>
     );
   });

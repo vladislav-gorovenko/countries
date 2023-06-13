@@ -1,6 +1,6 @@
 import getAllCountries from "./getAllCountries";
 
-export default async function getBorderedCountries() {
+export default async function getBorderedCountries(borders: string[]) {
   const countries = await getAllCountries();
-  console.log(countries);
+  return countries.filter((country) => borders?.includes(country.cca3));
 }

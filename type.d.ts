@@ -3,8 +3,9 @@ type Country = {
     common: string;
     official: string;
   };
-  ccn3: string;
+  cca3: string;
   population: number;
+  borders: string[];
   region: string;
   capital: string[];
   flags: {
@@ -26,7 +27,6 @@ type CountryDetailed = Country & {
   };
   subregion: sring;
   capital: string[];
-  borders: string[];
   tld: string[];
   currencies: {
     [key: string]: {
