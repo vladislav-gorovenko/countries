@@ -24,8 +24,8 @@ export default function Header() {
   }
 
   return (
-    <header>
-      <div className="flex justify-between bg-header px-4 py-8   shadow-md dark:bg-header-dark">
+    <header className="flex flex-col">
+      <div className="= flex justify-between bg-header px-4   py-8 shadow-md dark:bg-header-dark">
         <h1 className="text-lg font-extrabold">Where in the world?</h1>
         <button className="flex items-center gap-2" onClick={toggleTheme}>
           {chooseIcon()} Mode

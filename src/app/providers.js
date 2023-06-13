@@ -13,5 +13,13 @@ export default function Providers({ children }) {
     return <>{children}</>;
   }
 
-  return <ThemeProvider attribute="class">{children}</ThemeProvider>;
+  return (
+    <ThemeProvider
+      enableColorScheme={false}
+      defaultTheme="system"
+      attribute="class"
+    >
+      {children}
+    </ThemeProvider>
+  );
 }

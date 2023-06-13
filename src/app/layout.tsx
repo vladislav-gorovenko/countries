@@ -2,8 +2,9 @@ import "./globals.css";
 import { Nunito_Sans } from "next/font/google";
 import Providers from "./providers";
 import Header from "./components/Header";
+import Search from "./components/Search";
 
-const inter = Nunito_Sans({ subsets: ["latin"] });
+const nunito = Nunito_Sans({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Countries App.",
@@ -17,10 +18,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={`${nunito.className} bg-background dark:bg-background-dark dark:text-text-dark`}
+      >
         <Providers>
           <Header />
-          {children}
+          <main className="px-4 py-6">
+            <Search />
+            {children}
+          </main>
         </Providers>
       </body>
     </html>
