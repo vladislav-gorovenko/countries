@@ -1,8 +1,16 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Country({ country }: { country: Country }) {
   return (
-    <div className="flex h-full flex-col items-center justify-start overflow-hidden rounded bg-header text-text  shadow dark:bg-header-dark dark:text-text-dark">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="flex h-full flex-col items-center justify-start overflow-hidden rounded bg-header text-text  shadow dark:bg-header-dark dark:text-text-dark"
+    >
       <Image
         height={160}
         width={320}
@@ -27,6 +35,6 @@ export default function Country({ country }: { country: Country }) {
           {country.capital}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }
