@@ -27,7 +27,7 @@ export default function Header() {
   return (
     <header className=" bg-header shadow-md dark:bg-header-dark">
       <div className="mx-auto flex max-w-6xl justify-between px-4   py-8  ">
-        <h1 className="text-lg font-extrabold">
+        <h1 className="text-2xl font-extrabold">
           <Link href="/">Where in the world?</Link>
         </h1>
         <button className="flex items-center gap-2" onClick={toggleTheme}>
