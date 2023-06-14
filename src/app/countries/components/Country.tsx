@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { MdDoneOutline } from "react-icons/md";
 
 export default function Country({ country }: { country: Country }) {
   return (
@@ -15,12 +16,13 @@ export default function Country({ country }: { country: Country }) {
         height={160}
         width={320}
         src={country.flags.svg}
-        alt={country.flags.alt || `flag of ${country.name}`}
+        alt={country.flags.alt || `flag of ${country.name.common}`}
         className="aspect-[320/160] w-full object-cover"
       />
-      <div className="flex w-full flex-1 flex-col  items-start justify-center px-4 py-6">
+
+      <div className="flex w-full flex-1 flex-col  items-start justify-center  px-4 py-6">
         <h1 className=" mb-2 text-lg font-extrabold leading-tight">
-          {country.name.common}
+          {country.name.common}{" "}
         </h1>
         <p className="text-sm">
           <span className=" font-bold">Population: </span>
