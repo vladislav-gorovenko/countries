@@ -1,9 +1,11 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { MdDoneOutline } from "react-icons/md";
+import Link from "next/link";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 export default function Country({ country }: { country: Country }) {
+  const visited = true;
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
@@ -21,9 +23,21 @@ export default function Country({ country }: { country: Country }) {
       />
 
       <div className="flex w-full flex-1 flex-col  items-start justify-center  px-4 py-6">
-        <h1 className=" mb-2 text-lg font-extrabold leading-tight">
-          {country.name.common}{" "}
-        </h1>
+        <div className="mb-2 flex items-center gap-2 ">
+          <Link
+            href={`/countries/${country.cca3}`}
+            className="underline-offset-1 hover:underline"
+          >
+            <h1 className=" text-lg font-extrabold leading-tight">
+              {country.name.common}
+            </h1>
+          </Link>
+          {visited ? (
+            <AiFillStar className="cursor-pointer fill-green-600 transition-transform hover:scale-125" />
+          ) : (
+            <AiOutlineStar className="cursor-pointer transition-all hover:scale-125 hover:fill-green-600" />
+          )}
+        </div>
         <p className="text-sm">
           <span className=" font-bold">Population: </span>
           {country.population}
