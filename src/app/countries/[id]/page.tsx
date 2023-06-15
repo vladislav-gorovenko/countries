@@ -27,7 +27,7 @@ export default async function Ccn({ params: { id } }: Params) {
           height={160}
           width={320}
           src={country.flags.svg}
-          alt={country.flags.alt || `flag of ${country.name}`}
+          alt={country.flags.alt || `flag of ${country.name.common}`}
           className=" w-full rounded object-cover"
         />
         <div className=" grid gap-6">

@@ -2,7 +2,6 @@
 import Country from "./Country";
 import { useContext } from "react";
 import { SearchContext } from "./searchContext";
-import Link from "next/link";
 
 export default function CountriesGrid({ countries }: { countries: Country[] }) {
   const { searchParameters } = useContext(SearchContext);
@@ -15,11 +14,7 @@ export default function CountriesGrid({ countries }: { countries: Country[] }) {
     );
   });
   const content = filteredCountries.map((country) => {
-    return (
-      <Link key={country.cca3} href={`/countries/${country.cca3}`}>
-        <Country key={country.cca3} country={country} />
-      </Link>
-    );
+    return <Country key={country.cca3} country={country} />;
   });
 
   return (

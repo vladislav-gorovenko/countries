@@ -34,7 +34,7 @@ export default function Home() {
           className=" mb-6 inline-block rounded bg-green-600 px-4 py-2 text-text-dark transition-transform hover:scale-95 dark:bg-green-200 dark:text-text"
           href="/countries"
         >
-          Signup
+          Log in
         </Link>
       </div>
     </motion.div>
