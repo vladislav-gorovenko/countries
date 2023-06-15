@@ -26,7 +26,7 @@ export default function Home() {
           The whole world is at your finger tips now. To start browsing
           countries just press <span className="font-bold">browse</span>. Since
           you already <span className="font-bold">logged in</span>, you can
-          select countries you've already visited by pressing{" "}
+          select countries you&apos;ve already visited by pressing{" "}
           <AiFillStar
             size={20}
             className="inline cursor-pointer fill-green-600 transition-transform hover:scale-125"
