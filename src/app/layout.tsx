@@ -1,8 +1,8 @@
 import "./globals.css";
 import { Nunito_Sans } from "next/font/google";
 import Header from "./components/Header";
-
-import Providers from "./themeProvider";
+import AuthProvider from "./components/providers/authProvider";
+import ThemeProvider from "./components/providers/themeProvider";
 
 const nunito = Nunito_Sans({ subsets: ["latin"] });
 
@@ -21,10 +21,12 @@ export default function RootLayout({
       <body
         className={`${nunito.className} bg-background dark:bg-background-dark dark:text-text-dark`}
       >
-        <Providers>
-          <Header />
-          <main className="mx-auto max-w-6xl px-4 py-6">{children}</main>
-        </Providers>
+        <AuthProvider>
+          <ThemeProvider>
+            <Header />
+            <main className="mx-auto max-w-6xl px-4 py-6">{children}</main>
+          </ThemeProvider>
+        </AuthProvider>
       </body>
     </html>
   );

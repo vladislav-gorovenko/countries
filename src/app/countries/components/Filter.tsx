@@ -4,7 +4,7 @@ import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { useContext } from "react";
-import { SearchContext } from "./searchContext";
+import { SearchContext } from "./providers/searchContext";
 
 const choice = [
   { name: "All", value: "" },
