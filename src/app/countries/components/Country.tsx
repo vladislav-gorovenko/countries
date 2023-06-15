@@ -33,9 +33,15 @@ export default function Country({ country }: { country: Country }) {
             </h1>
           </Link>
           {visited ? (
-            <AiFillStar className="cursor-pointer fill-green-600 transition-transform hover:scale-125" />
+            <AiFillStar
+              size={20}
+              className="cursor-pointer fill-green-600 transition-transform hover:scale-125"
+            />
           ) : (
-            <AiOutlineStar className="cursor-pointer transition-all hover:scale-125 hover:fill-green-600" />
+            <AiOutlineStar
+              size={20}
+              className="cursor-pointer transition-all hover:scale-125 hover:fill-green-600"
+            />
           )}
         </div>
         <p className="text-sm">
