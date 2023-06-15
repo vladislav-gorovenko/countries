@@ -1,7 +1,7 @@
 "use client";
 import Country from "./Country";
 import { useContext } from "react";
-import { SearchContext } from "./searchContext";
+import { SearchContext } from "./providers/searchContext";
 
 export default function CountriesGrid({ countries }: { countries: Country[] }) {
   const { searchParameters } = useContext(SearchContext);

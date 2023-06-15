@@ -2,7 +2,7 @@
 import { BsSearch } from "react-icons/bs";
 import Filter from "./Filter";
 import { useContext } from "react";
-import { SearchContext } from "./searchContext";
+import { SearchContext } from "./providers/searchContext";
 import { useState } from "react";
 import { FormEvent } from "react";
 
