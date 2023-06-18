@@ -24,8 +24,6 @@ export default function Filter() {
   const [selected, setSelected] = useState(choice[0]);
   const { changeRegion, searchParameters } = useContext(SearchContext);
 
-  console.log(searchParameters);
-
   function handleChange(selection: Choice) {
     setSelected(selection);
     changeRegion(selection.value);

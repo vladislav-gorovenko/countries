@@ -6,28 +6,55 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { useSession } from "next-auth/react";
 import { useState } from "react";
 
-export default function Country({ country }: { country: Country }) {
-  const [visited, setVisited] = useState(false);
+export default function Country({
+  country,
+  visitedAlready,
+}: {
+  country: Country;
+  visitedAlready?: boolean;
+}) {
+  const [visited, setVisited] = useState(visitedAlready ? true : false);
+  const [loading, setLoading] = useState(false);
   const { data: session } = useSession();
+
+  async function handleClick() {
+    const previousValue = visited;
+    setLoading(true);
+    setVisited((prevVisited) => {
+      return !prevVisited;
+    });
+    if (previousValue) {
+      const response = await fetch(`api/del/${country.cca3}`);
+    } else {
+      const response = await fetch(`api/add/${country.cca3}`);
+    }
+    setLoading(false);
+  }
 
   function generateStar() {
     if (session?.user) {
       return visited ? (
-        <AiFillStar
-          size={20}
-          className="cursor-pointer fill-green-600 transition-transform hover:scale-125"
-          onClick={() => {
-            setVisited((prevVisited) => !prevVisited);
-          }}
-        />
+        <button
+          className="cursor-pointer disabled:cursor-not-allowed"
+          disabled={loading}
+          onClick={handleClick}
+        >
+          <AiFillStar
+            size={20}
+            className=" fill-green-600 transition-transform hover:scale-125"
+          />
+        </button>
       ) : (
-        <AiOutlineStar
-          size={20}
-          className="cursor-pointer transition-all hover:scale-125 hover:fill-green-600"
-          onClick={() => {
-            setVisited((prevVisited) => !prevVisited);
-          }}
-        />
+        <button
+          className="cursor-pointer disabled:cursor-not-allowed"
+          disabled={loading}
+          onClick={handleClick}
+        >
+          <AiOutlineStar
+            size={20}
+            className=" transition-all hover:scale-125 hover:fill-green-600"
+          />
+        </button>
       );
     }
 
@@ -36,7 +63,7 @@ export default function Country({ country }: { country: Country }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
+      initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}

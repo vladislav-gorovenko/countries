@@ -14,6 +14,7 @@ type Country = {
     alt: string;
   };
   region: string;
+  flag: string;
 };
 
 type CountryDetailed = Country & {
