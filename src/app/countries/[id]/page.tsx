@@ -3,6 +3,7 @@ import Image from "next/image";
 import BorderingCountries from "./components/BorderingCountries";
 import Link from "next/link";
 import { BsArrowLeft } from "react-icons/bs";
+import { getUser } from "../../../../lib/prisma/users";
 
 type Params = {
   params: {
@@ -12,7 +13,8 @@ type Params = {
 
 export default async function Ccn({ params: { id } }: Params) {
   const country = await getCountry(id);
-
+  const data = await getUser("martinideniam@gmail.com");
+  console.log(data);
   return (
     <>
       <Link
