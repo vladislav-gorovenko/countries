@@ -29,7 +29,6 @@ export default function CountriesGrid({ countries }: { countries: Country[] }) {
     );
   });
   const content = filteredCountries.map((country) => {
-    console.log(countriesVisited.includes(country.cca3));
     return (
       <Country
         key={
