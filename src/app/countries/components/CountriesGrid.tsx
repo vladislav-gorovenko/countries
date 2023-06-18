@@ -2,9 +2,24 @@
 import Country from "./Country";
 import { useContext } from "react";
 import { SearchContext } from "./providers/searchContext";
+import { useEffect, useState } from "react";
 
 export default function CountriesGrid({ countries }: { countries: Country[] }) {
   const { searchParameters } = useContext(SearchContext);
+  const [loading, setLoading] = useState(false);
+  const [countriesVisited, setCountriesVisited] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      const response = await fetch("/api/get");
+      const { data } = await response.json();
+      if (!data.user) return;
+      setCountriesVisited(data.user.countriesVisited);
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
 
   const filteredCountries = countries.filter((country) => {
     const { region, name } = searchParameters;
@@ -14,7 +29,17 @@ export default function CountriesGrid({ countries }: { countries: Country[] }) {
     );
   });
   const content = filteredCountries.map((country) => {
-    return <Country key={country.cca3} country={country} />;
+    console.log(countriesVisited.includes(country.cca3));
+    return (
+      <Country
+        key={
+          country.cca3 +
+          (countriesVisited.includes(country.cca3) ? "_visited" : "")
+        }
+        country={country}
+        visitedAlready={countriesVisited.includes(country.cca3)}
+      />
+    );
   });
 
   return (

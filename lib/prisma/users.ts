@@ -22,7 +22,7 @@ export async function addCountry(email: string, country: string) {
     if (!user) {
       throw new Error("User not found!");
     }
-    const updatedCountries = [...user.countriesVisited, country];
+    const updatedCountries = [...new Set([...user.countriesVisited, country])];
     const updatedUser = await prisma.user.update({
       where: { email: email },
       data: {

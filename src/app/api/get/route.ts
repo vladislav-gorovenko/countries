@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/config/authConfig";
 import { NextResponse } from "next/server";
-import { addCountry } from "../../../../../lib/prisma/users";
+import { getUser } from "../../../../lib/prisma/users";
 
 type Params = {
   params: {
@@ -9,12 +9,11 @@ type Params = {
   };
 };
 
-export async function GET(request: Request, { params }: Params) {
+export async function GET(request: Request) {
   const session = await getServerSession(authOptions);
   const user = session?.user as User;
-  const country = params.country;
   if (!user) return NextResponse.json({ message: "failed to fetch user" });
   const email = user.email;
-  const data = await addCountry(email, country);
+  const data = await getUser(email);
   return NextResponse.json({ data });
 }
