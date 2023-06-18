@@ -5,6 +5,8 @@ import { redirect } from "next/navigation";
 import getBorderedCountries from "@/utils/getBorderedCountries";
 import Link from "next/link";
 
+export const revalidate = 0;
+
 export default async function Account() {
   const session = await getServerSession(authOptions);
   const user = session?.user as User;
