@@ -2,8 +2,13 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/config/authConfig";
 import { NextResponse } from "next/server";
 
-export async function POST(request: Request) {
-  console.log(request);
+type Params = {
+  params: {
+    country: string;
+  };
+};
+
+export async function GET(request: Request, { params: country }: Params) {
   const session = await getServerSession(authOptions);
   const user = session?.user as User;
   if (!user) return NextResponse.json({ message: "failed to fetch user" });
