@@ -1,10 +1,12 @@
-import { AuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-
-console.log("VLAAaaaaad", process.env.NEXTAUTH_SECRET);
+import prisma from "../../lib/prisma";
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import { Adapter } from "next-auth/adapters";
+import type { AuthOptions } from "next-auth";
 
 export const authOptions: AuthOptions = {
   // Configure one or more authentication providers
+  adapter: PrismaAdapter(prisma) as Adapter,
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
