@@ -1,0 +1,20 @@
+[
+  {
+    "email": "user1@email.com",
+    "name": "John Doe",
+    "image": "https://example.com/image1.jpg",
+    "countriesVisited": ["USA", "FRA", "GER"]
+  },
+  {
+    "email": "user2@email.com",
+    "name": "Jane Smith",
+    "image": "https://example.com/image2.jpg",
+    "countriesVisited": ["ESP", "ITA", "UK"]
+  },
+  {
+    "email": "user3@email.com",
+    "name": "Robert Johnson",
+    "image": "https://example.com/image3.jpg",
+    "countriesVisited": ["CAN", "MEX", "BRA"]
+  }
+]

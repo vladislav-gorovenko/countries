@@ -3,9 +3,37 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { useSession } from "next-auth/react";
+import { useState } from "react";
 
 export default function Country({ country }: { country: Country }) {
-  const visited = true;
+  const [visited, setVisited] = useState(false);
+  const { data: session } = useSession();
+
+  function generateStar() {
+    if (session?.user) {
+      return visited ? (
+        <AiFillStar
+          size={20}
+          className="cursor-pointer fill-green-600 transition-transform hover:scale-125"
+          onClick={() => {
+            setVisited((prevVisited) => !prevVisited);
+          }}
+        />
+      ) : (
+        <AiOutlineStar
+          size={20}
+          className="cursor-pointer transition-all hover:scale-125 hover:fill-green-600"
+          onClick={() => {
+            setVisited((prevVisited) => !prevVisited);
+          }}
+        />
+      );
+    }
+
+    return null;
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
@@ -32,17 +60,7 @@ export default function Country({ country }: { country: Country }) {
               {country.name.common}
             </h1>
           </Link>
-          {visited ? (
-            <AiFillStar
-              size={20}
-              className="cursor-pointer fill-green-600 transition-transform hover:scale-125"
-            />
-          ) : (
-            <AiOutlineStar
-              size={20}
-              className="cursor-pointer transition-all hover:scale-125 hover:fill-green-600"
-            />
-          )}
+          {generateStar()}
         </div>
         <p className="text-sm">
           <span className=" font-bold">Population: </span>
