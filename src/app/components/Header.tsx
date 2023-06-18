@@ -11,7 +11,6 @@ export default function Header() {
   const { theme, setTheme } = useTheme();
   const { data: session } = useSession();
 
-  console.log(session?.user?.image);
   useEffect(() => {
     setMounted(true);
   }, []);

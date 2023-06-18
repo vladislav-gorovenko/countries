@@ -40,7 +40,7 @@ export default async function Account() {
       </div>
       <div className="mt-8 flex flex-col gap-2">
         <h1>That&apos;s your status so far 👇🏻</h1>
-        <div className="  max-w-md flex-1 rounded bg-slate-200 p-4 ">
+        <div className="  max-w-md flex-1 rounded bg-slate-200 p-4 dark:bg-slate-700 ">
           <p>
             So far I&apos;ve visited {countries.length} countries, namely:{" "}
             {countriesVisited.map((c) => c.flag).join(", ")}.
@@ -50,7 +50,7 @@ export default async function Account() {
         <Link
           href={`https://twitter.com/intent/tweet?text=${textToTweet}&url=${urlToTweet}`}
           target="_blank"
-          className="w-fit rounded bg-blue-200 px-4 py-2"
+          className="w-fit rounded bg-blue-200 px-4 py-2 dark:bg-blue-900"
         >
           Press to tweet
         </Link>
