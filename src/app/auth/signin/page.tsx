@@ -5,7 +5,7 @@ import { signIn } from "next-auth/react";
 export default function SigninPage() {
   return (
     <div>
-      <h1>You're now one click away from awesome experience 😃</h1>
+      <h1>You are now one click away from awesome experience 😃</h1>
       <button
         onClick={() => {
           signIn("google");
