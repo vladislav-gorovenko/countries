@@ -1,5 +1,9 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+# Countries Web App
+
+Welcome to my Countries Web App repository. This project is a solution to the Countries Web App challenge on [Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca).
+
 ## Getting Started
 
 First, run the development server:
@@ -18,17 +22,42 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## The Challenge
 
-To learn more about Next.js, take a look at the following resources:
+The challenge involved building an application that allowed users to:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- See all countries from the API on the homepage
+- Search for a country using an input field
+- Filter countries by region
+- Click on a country to see more detailed information on a separate page
+- Click through to the border countries on the detail page
+  **Bonus**: Toggle the color scheme between light and dark mode
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Technologies Used
 
-## Deploy on Vercel
+This project was built using the following technologies:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Typescript
+- Next.js (with App Router)
+- Next Auth
+- Prisma
+- MongoDB / Mongo Atlas
+- Framer Motion
+- Tailwind CSS
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Demo
+
+You can check out the live version of the project [here](https://countries-martinideniam.vercel.app).
+
+## Contact Me
+
+For any inquiries or feedback, feel free to get in touch with me through:
+
+- [GitHub](https://github.com/martinideniam/countries)
+- [Twitter](https://twitter.com/vlad_webdev)
+- [LinkedIn](https://www.linkedin.com/in/vladislavgorovenko/)
+- [Frontend Mentor](https://www.frontendmentor.io/profile/martinideniam)
+
+## Feedback
+
+If you have any feedback or suggestions, please open an issue here on [GitHub](https://github.com/martinideniam/countries/issues).
