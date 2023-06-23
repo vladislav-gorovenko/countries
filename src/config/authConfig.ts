@@ -15,4 +15,10 @@ export const authOptions: AuthOptions = {
     // ...add more providers here
   ],
   secret: process.env.NEXTAUTH_SECRET,
+  pages: {
+    signIn: "/auth/signin",
+    signOut: "/auth/signout",
+    error: "/auth/error", // Error code passed in query string as ?error=
+    newUser: "/", // New users will be directed here on first sign in (leave the property out if not of interest)
+  },
 };
