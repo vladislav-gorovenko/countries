@@ -1,11 +1,20 @@
 "use client";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { signIn } from "next-auth/react";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 export default function SigninPage() {
+  const { data: session } = useSession();
+  if (session) {
+    return redirect("/");
+  }
   return (
     <div>
-      <h1>You are now one click away from awesome experience 😃</h1>
+      <h1>
+        You are now just one click away from awesome experience. Just smash that
+        button bellow 😃
+      </h1>
       <button
         onClick={() => {
           signIn("google");

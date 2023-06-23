@@ -46,7 +46,7 @@ export default function Header() {
         </h1>
         <div className="flex gap-4">
           {session?.user?.image && (
-            <Link href="countries/account">
+            <Link href="/countries/account">
               <Image
                 src={session.user.image}
                 alt="account image"

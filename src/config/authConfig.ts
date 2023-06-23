@@ -17,6 +17,5 @@ export const authOptions: AuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: "/auth/signin",
-    newUser: "/", // New users will be directed here on first sign in (leave the property out if not of interest)
   },
 };

@@ -32,7 +32,7 @@ export default function Home() {
             className="inline cursor-pointer fill-green-600 transition-transform hover:scale-125"
           />{" "}
           on each country card , see how many ones there are still remaining to
-          visit, get some cool generated tweets to share on Twitter ...
+          visit, tweet how many countries you&apos;ve visited in one click ...
         </p>
       ) : (
         <p className="mb-6 max-w-2xl">

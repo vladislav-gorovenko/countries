@@ -18,16 +18,20 @@ export default function Search() {
 
   return (
     <div className="flex flex-wrap justify-between gap-4">
-      <div className="flex h-14 basis-[480px]  items-center justify-start gap-4 rounded bg-header px-6 shadow-sm dark:bg-header-dark ">
+      <label
+        htmlFor="search"
+        className="flex h-14 basis-[480px] items-center justify-start gap-4 rounded bg-header px-6 shadow-sm outline-1  dark:bg-header-dark [&:has(input:focus)]:outline"
+      >
         <BsSearch className=" fill-input-text dark:fill-input-text-dark " />
         <input
-          className="flex-1 bg-inherit "
+          className="flex-1 bg-inherit focus:outline-none"
           placeholder="Search for a country ..."
           type="text"
+          id="search"
           value={search}
           onInput={handleInput}
         />
-      </div>
+      </label>
       <Filter />
     </div>
   );

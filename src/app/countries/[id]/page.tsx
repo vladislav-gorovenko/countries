@@ -3,7 +3,6 @@ import Image from "next/image";
 import BorderingCountries from "./components/BorderingCountries";
 import Link from "next/link";
 import { BsArrowLeft } from "react-icons/bs";
-import { getUser } from "../../../../lib/prisma/users";
 
 type Params = {
   params: {
@@ -16,11 +15,11 @@ export default async function Ccn({ params: { id } }: Params) {
   return (
     <>
       <Link
-        className="mb-10 mt-8 flex w-max items-center justify-start gap-2 rounded bg-header px-6 py-2 text-text shadow dark:bg-header-dark dark:text-text-dark"
+        className=" mb-10 mt-8 flex w-max items-center justify-start gap-2 rounded bg-header px-6 py-2 text-text shadow focus:outline-none dark:bg-header-dark dark:text-text-dark"
         href="/countries"
       >
         <BsArrowLeft />
-        Back
+        Countries
       </Link>
       <div className=" grid grid-cols-1 items-center  gap-x-16 gap-y-6  text-text dark:text-text-dark sm:grid-cols-2">
         <Image
