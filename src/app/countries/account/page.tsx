@@ -65,20 +65,20 @@ export default function Account() {
       <div className="mt-8 flex flex-col gap-2">
         <h1>That&apos;s your status so far 👇🏻</h1>
         <div className="  max-w-md flex-1 rounded bg-slate-200 p-4 dark:bg-slate-700 ">
-          {countries.length === 0 ? (
+          {countriesVisited.length === 0 ? (
             <p>So far I&apos;ve not visited any countries 🥲</p>
-          ) : countries.length === 1 ? (
+          ) : countriesVisited.length === 1 ? (
             <p>
               So far I&apos;ve visited only one country, namely{" "}
               {countriesVisited[0].flag}
             </p>
           ) : (
             <p>
-              So far I&apos;ve visited {countries.length} countries, namely:{" "}
-              {countriesVisited.map((c) => c.flag).join(", ")}.
+              So far I&apos;ve visited {countriesVisited.length} countries,
+              namely: {countriesVisited.map((c) => c.flag).join(", ")}.
             </p>
           )}
-          <p>There are still {195 - countries.length} to explore... 🥹</p>
+          <p>There are still {195 - countriesVisited.length} to explore... 🥹</p>
         </div>
         <Link
           href={`https://twitter.com/intent/tweet?text=${textToTweet}&url=${urlToTweet}`}
